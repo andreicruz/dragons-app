@@ -20,9 +20,15 @@ export class ListDragonsComponent implements OnInit {
 
   getDragons() {
     this.dragonService.getDragons().subscribe(data => {
-      this.dragons = data;
-      console.log(this.dragons)
+      this.dragons = data.sort((a, b) => a.name.localeCompare(b.name))
+      this.dragons.forEach(dragon => {
+        dragon.color = this.generateColor();
+      })
     })
   }
 
+  generateColor(): string{
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
+  }
 }
