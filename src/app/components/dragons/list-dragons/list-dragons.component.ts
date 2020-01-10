@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faDragon, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { DragonService } from 'src/app/services/dragon.service';
 import { Dragon } from 'src/app/models/dragon';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { EditDragonsComponent } from 'src/app/components/dragons/edit-dragons/edit-dragons.component';
 
 @Component({
   selector: 'app-list-dragons',
@@ -13,8 +15,10 @@ export class ListDragonsComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
   dragons: Dragon[];
+  name = 'oi';
+  animal = ''
 
-  constructor(private dragonService: DragonService) { }
+  constructor(private dragonService: DragonService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getDragons();
@@ -32,5 +36,19 @@ export class ListDragonsComponent implements OnInit {
   generateColor(): string{
     var color = Math.floor(0x1000000 * Math.random()).toString(16);
     return '#' + ('000000' + color).slice(-6);
+  }
+
+  openEditModal(dragon): void {
+    console.log(dragon)
+    const dialogRef = this.dialog.open(EditDragonsComponent, {
+      width: '250px',
+      data: {
+        id: dragon.id,
+        createdAt: dragon.createdAt,
+        name: dragon.name,
+        type: dragon.type,
+        histories: dragon.histories
+      }
+    });
   }
 }
