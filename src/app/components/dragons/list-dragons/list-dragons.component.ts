@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { faDragon, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { DragonService } from 'src/app/services/dragon.service';
 import { Dragon } from 'src/app/models/dragon';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { EditDragonsComponent } from 'src/app/components/dragons/edit-dragons/edit-dragons.component';
+import { RemoveDragonsComponent } from 'src/app/components/dragons/remove-dragons/remove-dragons.component';
 
 @Component({
   selector: 'app-list-dragons',
@@ -36,8 +37,7 @@ export class ListDragonsComponent implements OnInit {
     return '#' + ('000000' + color).slice(-6);
   }
 
-  openEditModal(dragon): void {
-    console.log(dragon)
+  openEditModal(dragon) {
     const dialogRef = this.dialog.open(EditDragonsComponent, {
       width: '500px',
       height: '300px',
@@ -50,9 +50,26 @@ export class ListDragonsComponent implements OnInit {
       }
     });
 
-    dialogRef.componentInstance.onEditDragon.subscribe(() => {
+    dialogRef.componentInstance.editDragonEvent.subscribe(() => {
       this.getDragons();
     })
+  }
 
+  openDeleteModal(dragon){
+    const dialogRef = this.dialog.open(RemoveDragonsComponent, {
+      width: '220px',
+      height: '120px',
+      data: {
+        id: dragon.id,
+        createdAt: dragon.createdAt,
+        name: dragon.name,
+        type: dragon.type,
+        histories: dragon.histories
+      }
+    });
+
+    dialogRef.componentInstance.removeDragonEvent.subscribe(() => {
+      this.getDragons();
+    })
   }
 }
