@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Inject } from '@angular/core';
 import { Dragon } from 'src/app/models/dragon';
 import { DragonService } from 'src/app/services/dragon.service';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
@@ -16,10 +16,12 @@ export class EditDragonsComponent implements OnInit {
   editForm: FormGroup;
   minLength = 2;
   maxLength = 20;
+  panelOpenState = false;
 
   constructor(private dragonService: DragonService, 
               @Inject(MAT_DIALOG_DATA) public dialogData: Dragon,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              public dialog: MatDialogRef<Dragon>) { }
 
   ngOnInit() {
     this.getDragon();
@@ -43,4 +45,33 @@ export class EditDragonsComponent implements OnInit {
     })
   }
 
+  newHistory(){
+    this.dragonHistories.push(this.editForm.controls.histories.value);
+    this.editForm.controls.histories.setValue('');
+  }
+
+  updateDragon(){
+    const dragon = {
+      id: this.dialogData.id,
+      createdAt: this.dialogData.createdAt,
+      name: this.editForm.get('name').value,
+      type: this.editForm.get('type').value,
+      histories: this.dragonHistories.length < 1 ? [] : this.dragonHistories
+    }
+
+    this.dragonService.updateDragon(dragon).subscribe(
+      response => {
+        this.onEditDragon.emit();
+        alert('Saved!');
+      },
+      error => {
+        alert('Error on edit');
+      }
+    );
+    this.closeModal();
+  }
+
+  closeModal(){
+    this.dialog.close();
+  }
 }
