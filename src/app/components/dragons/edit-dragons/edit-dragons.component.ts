@@ -10,7 +10,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./edit-dragons.component.sass']
 })
 export class EditDragonsComponent implements OnInit {
-  onEditDragon = new EventEmitter();
+  editDragonEvent = new EventEmitter();
   dragon: Dragon;
   dragonHistories: any[];
   editForm: FormGroup;
@@ -19,7 +19,7 @@ export class EditDragonsComponent implements OnInit {
   panelOpenState = false;
 
   constructor(private dragonService: DragonService, 
-              @Inject(MAT_DIALOG_DATA) public dialogData: Dragon,
+              @Inject(MAT_DIALOG_DATA) public matDialogData: Dragon,
               private formBuilder: FormBuilder,
               public dialog: MatDialogRef<Dragon>) { }
 
@@ -30,16 +30,16 @@ export class EditDragonsComponent implements OnInit {
 
   validateForm(){
     this.editForm = this.formBuilder.group({
-      name: this.formBuilder.control(this.dialogData.name,
+      name: this.formBuilder.control(this.matDialogData.name,
         [Validators.required, Validators.minLength(this.minLength), Validators.maxLength(this.maxLength)]),
-      type: this.formBuilder.control(this.dialogData.type,
+      type: this.formBuilder.control(this.matDialogData.type,
         [Validators.required, Validators.minLength(this.minLength), Validators.maxLength(this.maxLength)]),
-      histories: [this.dialogData.histories]
+      histories: [this.matDialogData.histories]
     });
   }
 
   getDragon(){
-    this.dragonService.getDragon(this.dialogData.id).subscribe(data => {
+    this.dragonService.getDragon(this.matDialogData.id).subscribe(data => {
       this.dragon = data;
       this.dragonHistories = data.histories;
     })
@@ -52,8 +52,8 @@ export class EditDragonsComponent implements OnInit {
 
   updateDragon(){
     const dragon = {
-      id: this.dialogData.id,
-      createdAt: this.dialogData.createdAt,
+      id: this.matDialogData.id,
+      createdAt: this.matDialogData.createdAt,
       name: this.editForm.get('name').value,
       type: this.editForm.get('type').value,
       histories: this.dragonHistories.length < 1 ? [] : this.dragonHistories
@@ -61,7 +61,7 @@ export class EditDragonsComponent implements OnInit {
 
     this.dragonService.updateDragon(dragon).subscribe(
       response => {
-        this.onEditDragon.emit();
+        this.editDragonEvent.emit();
         alert('Saved!');
       },
       error => {
