@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faDragon, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { DragonService } from 'src/app/services/dragon.service';
 import { Dragon } from 'src/app/models/dragon';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EditDragonsComponent } from 'src/app/components/dragons/edit-dragons/edit-dragons.component';
 
 @Component({
@@ -40,7 +40,7 @@ export class ListDragonsComponent implements OnInit {
     console.log(dragon)
     const dialogRef = this.dialog.open(EditDragonsComponent, {
       width: '500px',
-      height: '200px',
+      height: '300px',
       data: {
         id: dragon.id,
         createdAt: dragon.createdAt,
