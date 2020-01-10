@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faDragon } from '@fortawesome/free-solid-svg-icons';
+import { faDragon, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { DragonService } from 'src/app/services/dragon.service';
 import { Dragon } from 'src/app/models/dragon';
 
@@ -10,6 +10,8 @@ import { Dragon } from 'src/app/models/dragon';
 })
 export class ListDragonsComponent implements OnInit {
   faDragon = faDragon;
+  faPen = faPen;
+  faTrash = faTrash;
   dragons: Dragon[];
 
   constructor(private dragonService: DragonService) { }

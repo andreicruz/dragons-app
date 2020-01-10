@@ -1,5 +1,4 @@
 <div class="row">
-    
     <div class="col-md-3" *ngFor="let dragon of dragons">
         <div class="transform">
             <div class="icon"[ngStyle]="{'color': dragon.color}"><fa-icon [icon]="faDragon"></fa-icon></div>
@@ -20,5 +19,14 @@
                     <div class="info">{{dragon.createdAt | date: 'dd/MM/yyyy'}}</div>
                 </div>
             </div>
+            <div class="buttons">
+                <div class="item">
+                    <button class="btn btn-primary"><fa-icon [icon]="faPen"></fa-icon></button>
+                </div>
+                <div class="item">
+                    <button class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon></button>
+                </div>
+            </div>
         </div>
+    </div>
 </div>
