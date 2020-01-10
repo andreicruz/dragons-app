@@ -9,22 +9,27 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ListDragonsComponent } from './components/dragons/list-dragons/list-dragons.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditDragonsComponent } from './components/dragons/edit-dragons/edit-dragons.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ListDragonsComponent
+    ListDragonsComponent,
+    EditDragonsComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditDragonsComponent]
 })
 export class AppModule { }
