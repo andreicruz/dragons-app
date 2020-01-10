@@ -14,4 +14,8 @@ export class DragonService {
   getDragons(): Observable<Dragon[]>{
     return this.httpClient.get<Dragon[]>(api.url);
   }
+
+  getDragon(id): Observable<Dragon>{
+    return this.httpClient.get<Dragon>(api.url + id);
+  }
 }
