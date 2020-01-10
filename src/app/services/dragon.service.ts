@@ -18,4 +18,8 @@ export class DragonService {
   getDragon(id): Observable<Dragon>{
     return this.httpClient.get<Dragon>(api.url + id);
   }
+
+  updateDragon(dragon: Dragon): Observable<Dragon>{
+    return this.httpClient.put<Dragon>(api.url + dragon.id, dragon);
+  }
 }
