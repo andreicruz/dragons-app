@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RemoveDragonsComponent } from './components/dragons/remove-dragons/remove-dragons.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HeaderComponent,
     FooterComponent,
     ListDragonsComponent,
-    EditDragonsComponent
+    EditDragonsComponent,
+    RemoveDragonsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [EditDragonsComponent]
+  entryComponents: [EditDragonsComponent, RemoveDragonsComponent]
 })
 export class AppModule { }
