@@ -15,8 +15,6 @@ export class ListDragonsComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
   dragons: Dragon[];
-  name = 'oi';
-  animal = ''
 
   constructor(private dragonService: DragonService, public dialog: MatDialog) { }
 
@@ -41,7 +39,8 @@ export class ListDragonsComponent implements OnInit {
   openEditModal(dragon): void {
     console.log(dragon)
     const dialogRef = this.dialog.open(EditDragonsComponent, {
-      width: '250px',
+      width: '500px',
+      height: '200px',
       data: {
         id: dragon.id,
         createdAt: dragon.createdAt,
@@ -50,5 +49,10 @@ export class ListDragonsComponent implements OnInit {
         histories: dragon.histories
       }
     });
+
+    dialogRef.componentInstance.onEditDragon.subscribe(() => {
+      this.getDragons();
+    })
+
   }
 }
