@@ -58,7 +58,7 @@ export class ListDragonsComponent implements OnInit {
   openDeleteModal(dragon){
     const dialogRef = this.dialog.open(RemoveDragonsComponent, {
       width: '220px',
-      height: '120px',
+      height: '150px',
       data: {
         id: dragon.id,
         createdAt: dragon.createdAt,
