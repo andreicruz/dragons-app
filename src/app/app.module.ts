@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RemoveDragonsComponent } from './components/dragons/remove-dragons/remove-dragons.component';
+import { AboutDragonComponent } from './components/dragons/about-dragon/about-dragon.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RemoveDragonsComponent } from './components/dragons/remove-dragons/remo
     FooterComponent,
     ListDragonsComponent,
     EditDragonsComponent,
-    RemoveDragonsComponent
+    RemoveDragonsComponent,
+    AboutDragonComponent
   ],
   imports: [
     BrowserModule,
