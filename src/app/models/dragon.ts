@@ -3,6 +3,6 @@ export class Dragon {
     name: string;
     type: string;
     createdAt: string;
-    color: string;
+    color?: string;
     histories: string[];
 }
