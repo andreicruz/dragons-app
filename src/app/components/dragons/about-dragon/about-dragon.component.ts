@@ -10,6 +10,7 @@ import { Dragon } from 'src/app/models/dragon';
 })
 export class AboutDragonComponent implements OnInit {
   dragon: Dragon;
+  panelOpenState = false;
 
   constructor(private dragonService: DragonService, private route: ActivatedRoute,) { }
 

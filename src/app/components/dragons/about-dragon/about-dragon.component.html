@@ -1,1 +1,37 @@
-<p>about-dragon works!</p>
+<div *ngIf="dragon">
+    <mat-card class="dragon-card">
+        <div class="item">
+            <div class="title">Name:</div>
+            <div class="info">{{dragon.name}}</div>
+        </div>
+        <div class="item">
+            <div class="title">Type:</div>
+            <div class="info">{{dragon.type}}</div>
+        </div>
+        <div class="item">
+            <div class="title">Created:</div>
+            <div class="info">{{dragon.createdAt | date: 'dd/MM/yyyy'}}</div>
+        </div>
+        <div class="item item--noflex">
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false"
+                                [disabled]="dragon.histories?.length === 0">
+                <mat-expansion-panel-header>
+                    <mat-panel-title *ngIf="dragon.histories?.length === 0; else histories">
+                        No histories found.
+                    </mat-panel-title>
+                    <ng-template #histories>
+                        <mat-panel-title>
+                            Histories
+                        </mat-panel-title>
+                    </ng-template>
+                </mat-expansion-panel-header>
+                <div *ngIf="dragon.histories?.length > 0">
+                    <div *ngFor="let history of dragon.histories; let index = index">
+                        <p>{{index}}. {{history}}</p>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </mat-card>
+</div>
