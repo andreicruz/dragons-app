@@ -11,13 +11,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ListDragonsComponent } from './components/dragons/list-dragons/list-dragons.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditDragonsComponent } from './components/dragons/edit-dragons/edit-dragons.component';
+import { RemoveDragonsComponent } from './components/dragons/remove-dragons/remove-dragons.component';
+import { AboutDragonComponent } from './components/dragons/about-dragon/about-dragon.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { RemoveDragonsComponent } from './components/dragons/remove-dragons/remove-dragons.component';
-import { AboutDragonComponent } from './components/dragons/about-dragon/about-dragon.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AboutDragonComponent } from './components/dragons/about-dragon/about-dr
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
