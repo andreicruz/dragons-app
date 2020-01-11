@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
+import { CreateDragonsComponent } from './components/dragons/create-dragons/create-dragons.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatCardModule} from '@angular/material/card';
     ListDragonsComponent,
     EditDragonsComponent,
     RemoveDragonsComponent,
-    AboutDragonComponent
+    AboutDragonComponent,
+    CreateDragonsComponent
   ],
   imports: [
     BrowserModule,
