@@ -5,7 +5,6 @@ import { Dragon } from 'src/app/models/dragon';
 import { MatDialog } from '@angular/material/dialog';
 import { EditDragonsComponent } from 'src/app/components/dragons/edit-dragons/edit-dragons.component';
 import { RemoveDragonsComponent } from 'src/app/components/dragons/remove-dragons/remove-dragons.component';
-import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-list-dragons',

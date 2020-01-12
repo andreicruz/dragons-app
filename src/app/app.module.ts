@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoginComponent } from './components/login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     EditDragonsComponent,
     RemoveDragonsComponent,
     AboutDragonComponent,
-    CreateDragonsComponent
+    CreateDragonsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
