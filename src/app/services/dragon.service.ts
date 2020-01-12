@@ -26,4 +26,8 @@ export class DragonService {
   removeDragon(dragon: Dragon): Observable<Dragon> {
     return this.httpClient.delete<Dragon>(api.url + dragon.id);
   }
+
+  createDragon(dragon: Dragon): Observable<Dragon> {
+    return this.httpClient.post<Dragon>(api.url, dragon);
+  }
 }
