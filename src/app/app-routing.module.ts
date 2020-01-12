@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'dragons',  component: ListDragonsComponent, canActivate: [AuthGuard] },
   { path: 'dragon/:id', component: AboutDragonComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: '', component: ListDragonsComponent, canActivate: [AuthGuard] }
+  { path: '', component: LoginComponent }
 ];
 
 @NgModule({

@@ -16,12 +16,15 @@ export class AuthService {
     return authToken === token;
   }
 
-  login(email: string, password: string) {
+  login() {
     this.setToken();
-    return { user: user.email, password: user.password}
   }
 
   setToken() {
     localStorage.setItem('token', authToken);
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 }
