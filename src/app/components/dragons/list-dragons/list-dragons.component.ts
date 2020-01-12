@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { faDragon, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faDragon, faPen, faTrash, faSortAlphaUp, faSortNumericUp} from '@fortawesome/free-solid-svg-icons';
 import { DragonService } from 'src/app/services/dragon.service';
 import { Dragon } from 'src/app/models/dragon';
 import { MatDialog } from '@angular/material/dialog';
 import { EditDragonsComponent } from 'src/app/components/dragons/edit-dragons/edit-dragons.component';
 import { RemoveDragonsComponent } from 'src/app/components/dragons/remove-dragons/remove-dragons.component';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-list-dragons',
@@ -15,7 +16,10 @@ export class ListDragonsComponent implements OnInit {
   faDragon = faDragon;
   faPen = faPen;
   faTrash = faTrash;
+  faSortAlphaUp = faSortAlphaUp;
+  faSortNumericUp = faSortNumericUp;
   dragons: Dragon[];
+  positionTooltip = 'before';
 
   constructor(private dragonService: DragonService, public dialog: MatDialog) { }
 
@@ -71,5 +75,13 @@ export class ListDragonsComponent implements OnInit {
     dialogRef.componentInstance.removeDragonEvent.subscribe(() => {
       this.getDragons();
     })
+  }
+
+  sortById(){
+    this.dragons.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+  }
+
+  sortByName(){
+    this.dragons.sort((a, b) => a.name.localeCompare(b.name));
   }
 }
