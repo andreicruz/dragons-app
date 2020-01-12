@@ -13,13 +13,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditDragonsComponent } from './components/dragons/edit-dragons/edit-dragons.component';
 import { RemoveDragonsComponent } from './components/dragons/remove-dragons/remove-dragons.component';
 import { AboutDragonComponent } from './components/dragons/about-dragon/about-dragon.component';
+import { CreateDragonsComponent } from './components/dragons/create-dragons/create-dragons.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatCardModule} from '@angular/material/card';
-import { CreateDragonsComponent } from './components/dragons/create-dragons/create-dragons.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CreateDragonsComponent } from './components/dragons/create-dragons/crea
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],
