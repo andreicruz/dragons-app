@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faHome, faList, faDragon, faUser, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faList, faDragon, faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit {
   faList = faList;
   faDragon = faDragon;
   faUser = faUser;
-  faBars = faBars;
 
   constructor(private authService: AuthService, private router: Router) { }
 
