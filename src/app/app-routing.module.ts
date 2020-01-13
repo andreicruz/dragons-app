@@ -5,12 +5,14 @@ import { AboutDragonComponent } from './components/dragons/about-dragon/about-dr
 import { CreateDragonsComponent } from './components/dragons/create-dragons/create-dragons.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { AuthGuard } from './services/auth.guard';
+import { NotFoundPageComponent } from './components/notfound/not-found-page.component';
 
 const routes: Routes = [
   { path: 'dragon/create',  component: CreateDragonsComponent, canActivate: [AuthGuard] },
   { path: 'dragons',  component: ListDragonsComponent, canActivate: [AuthGuard] },
   { path: 'dragon/:id', component: AboutDragonComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: '**', component: NotFoundPageComponent },
   { path: '', component: LoginComponent }
 ];
 
