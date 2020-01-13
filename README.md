@@ -6,9 +6,9 @@ Rodar com Docker:
 1. Instalar o docker (https://www.docker.com/)
 2. Rodar os seguintes comandos:
 ```
-docker pull andreicruz/agibank-test
+docker pull andreicruz/dragon-app:v1
 
-docker run -p 3000:3000 andreicruz/agibank-test
+docker run -p 8081:80 andreicruz/dragon-app:v1
 ```
 3. Acessar o link: http://localhost:8081/
 
