@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
+Usuario para login:
+email: teste@teste.com.br
+senha: teste123
+
 Rodar com Docker:
 1. Instalar o docker (https://www.docker.com/)
 2. Rodar os seguintes comandos:
