@@ -1,4 +1,7 @@
 <div class="list-dragons">
+    <div class="loading">
+        <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    </div>
     <div class="buttons">
         <div>
             <button matTooltip="Add new Dragon"

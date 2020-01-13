@@ -19,6 +19,7 @@ export class ListDragonsComponent implements OnInit {
   faSortNumericUp = faSortNumericUp;
   dragons: Dragon[];
   positionTooltip = 'before';
+  showSpinner = false;
 
   constructor(private dragonService: DragonService, public dialog: MatDialog) { }
 
@@ -27,12 +28,15 @@ export class ListDragonsComponent implements OnInit {
   }
 
   getDragons() {
+    this.showSpinner = true;
     this.dragonService.getDragons().subscribe(data => {
         this.dragons = data.sort((a, b) => a.name.localeCompare(b.name))
         this.dragons.forEach(dragon => {
             dragon.color = this.generateColor();
         })
+        this.showSpinner = false;
     })
+
   }
 
   generateColor(): string{

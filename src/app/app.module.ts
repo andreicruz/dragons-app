@@ -15,6 +15,7 @@ import { RemoveDragonsComponent } from './components/dragons/remove-dragons/remo
 import { AboutDragonComponent } from './components/dragons/about-dragon/about-dragon.component';
 import { CreateDragonsComponent } from './components/dragons/create-dragons/create-dragons.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { NotFoundPageComponent } from './components/notfound/not-found-page.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,7 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { NotFoundPageComponent } from './components/notfound/not-found-page.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { NotFoundPageComponent } from './components/notfound/not-found-page.comp
     MatExpansionModule,
     MatCardModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

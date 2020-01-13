@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class AboutDragonComponent implements OnInit {
   dragon: Dragon;
   panelOpenState = false;
+  showSpinner = false;
 
   constructor(private dragonService: DragonService, 
               private route: ActivatedRoute,
@@ -22,7 +23,11 @@ export class AboutDragonComponent implements OnInit {
   }
 
   getDragon(id) {
-    this.dragonService.getDragon(id).subscribe(data => this.dragon = data)
+    this.showSpinner = true;
+    this.dragonService.getDragon(id).subscribe(data => {
+      this.dragon = data
+      this.showSpinner = false;
+    })
   }
 
   previousPage() {
