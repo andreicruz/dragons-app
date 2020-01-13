@@ -28,14 +28,10 @@ export class ListDragonsComponent implements OnInit {
 
   getDragons() {
     this.dragonService.getDragons().subscribe(data => {
-      if(this.dragons === undefined){
         this.dragons = data.sort((a, b) => a.name.localeCompare(b.name))
         this.dragons.forEach(dragon => {
             dragon.color = this.generateColor();
         })
-      } else{
-        this.dragons = this.dragons
-      }
     })
   }
 

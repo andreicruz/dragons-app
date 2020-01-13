@@ -26,6 +26,7 @@
                     .title
                         font-weight: 700
                     .info
+                        text-transform: capitalize
                         .element
                             margin: auto
                             width: 50%                
@@ -38,6 +39,8 @@
                 .btn
                     border-radius: 4px
     .buttons
+        display: flex
+        flex-direction: column
         position: fixed
         right: 0
         top: 50%
@@ -54,3 +57,17 @@
                 line-height: 1.33
                 padding: 10px 10px
                 width: 50px
+
+
+@media only screen and (max-width: 1650px)
+    .list-dragons
+        .buttons
+            flex-direction: row
+            margin-bottom: 20px
+            position: static
+            right: 0
+            top: 50%
+            text-align: center
+            width: 100%
+            div
+                flex: 1

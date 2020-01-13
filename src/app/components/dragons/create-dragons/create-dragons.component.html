@@ -1,5 +1,5 @@
-<div class="form">
-    <mat-card>
+<div class="create-dragon">
+    <mat-card class="form">
         <form [formGroup]="createForm">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
@@ -18,13 +18,14 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="col-10 text-center">
+                <div class="col-8 text-center">
                     <mat-form-field>
                         <input matInput type="text" placeholder="History" id="histories" name="histories" formControlName="histories" value="">
                     </mat-form-field>
                 </div>
-                <div class="col-2 text-center">
-                    <button class="btn btn-success" (click)="newHistory()">+</button>
+                <div class="col-4 text-center">
+                    <button class="btn btn-add mt-1 d-none d-md-block" (click)="newHistory()">Add History</button>
+                    <button class="btn btn-add mt-1 d-block d-md-none" (click)="newHistory()">Add</button>
                 </div>
                 <div class="col-12">
                     <mat-expansion-panel (opened)="panelOpenState = true"
@@ -48,7 +49,8 @@
                     </mat-expansion-panel>
                 </div>
                 <div class="button button-web col-12">
-                    <button class="btn btn-success" mat-button type="submit" (click)="createDragon()" [disabled]="!createForm.valid">Save</button>
+                    <button class="btn btn-secondary mr-2" (click)="previousPage()">Return</button>
+                    <button class="btn btn-success" type="submit" (click)="createDragon()" [disabled]="!createForm.valid">Save</button>
                 </div>
             </div>
         </form>

@@ -18,13 +18,14 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="col-10 text-center">
-                    <mat-form-field>
+                <div class="col-8">
+                    <mat-form-field class="w-100">
                         <input matInput type="text" placeholder="History" id="histories" name="histories" formControlName="histories" value="">
                     </mat-form-field>
                 </div>
-                <div class="col-2 text-center">
-                    <button class="btn btn-success" (click)="newHistory()">+</button>
+                <div class="col-4 text-center">
+                    <button class="btn btn-add mt-1 d-none d-md-block" (click)="newHistory()">Add History</button>
+                    <button class="btn btn-add mt-1 d-block d-md-none" (click)="newHistory()">Add</button>
                 </div>
                 <div class="col-12">
                     <mat-expansion-panel (opened)="panelOpenState = true"
@@ -47,17 +48,11 @@
                         </div>
                     </mat-expansion-panel>
                 </div>
-                <div class="col-2 text-center">
-                    <button class="btn btn-success" (click)="newHistory()">+</button>
-                </div>
-                <div class="buttons">
-                    <button class="btn btn-danger" mat-button mat-dialog-close>Close</button>
+                <div class="buttons col-12 text-right">
+                    <button class="btn btn-secondary mr-2" mat-button mat-dialog-close>Cancel</button>
                     <button class="btn btn-success" mat-button type="submit" (click)="updateDragon()" [disabled]="!editForm.valid">Save</button>
                 </div>
             </div>
         </form>
     </mat-dialog-actions>
-    <!-- <mat-dialog-actions>
-
-    </mat-dialog-actions> -->
 </div>

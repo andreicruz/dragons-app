@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { user } from 'src/environments/environment';
 
 const authToken = 'authenticated';
 

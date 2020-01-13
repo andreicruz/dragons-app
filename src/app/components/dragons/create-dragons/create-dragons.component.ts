@@ -51,7 +51,7 @@ export class CreateDragonsComponent implements OnInit {
     this.dragonService.createDragon(dragon).subscribe(
       res => {
         alert('Dragon added')
-        this.returnToDragonList();
+        this.previousPage();
       },
       error => {
         alert('Error')
@@ -59,7 +59,7 @@ export class CreateDragonsComponent implements OnInit {
     );
   }
 
-  returnToDragonList() {
+  previousPage() {
     this.location.back();
   }
 }

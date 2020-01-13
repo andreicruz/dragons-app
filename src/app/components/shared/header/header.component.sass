@@ -1,7 +1,7 @@
 $font-header: 25px
     
 header
-    background-color: #6f1280
+    background-color: #8c3e9a
     color: white
     box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24)
 
@@ -15,4 +15,16 @@ header
     .home
         flex: 1
     .menu
-        flex: 1
+        display: flex
+        
+.btn-warning
+    background-color: #6f1280
+    border: #6f1280
+    color: white
+
+@media only screen and (max-width: 768px)
+    .header-web
+        .item
+            height: 100%
+            button
+                height: 100%

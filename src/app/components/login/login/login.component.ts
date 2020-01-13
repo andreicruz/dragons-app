@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/services/auth.service';
 import { user } from 'src/environments/environment';
 import { MatSnackBar } from '@angular/material';
