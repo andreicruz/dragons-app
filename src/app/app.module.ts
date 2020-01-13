@@ -23,6 +23,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NotFoundPageComponent } from './components/notfound/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RemoveDragonsComponent,
     AboutDragonComponent,
     CreateDragonsComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
