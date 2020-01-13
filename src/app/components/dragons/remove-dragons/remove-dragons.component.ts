@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { Dragon } from 'src/app/models/dragon';
 import { DragonService } from 'src/app/services/dragon.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-remove-dragons',
@@ -14,7 +15,8 @@ export class RemoveDragonsComponent implements OnInit {
 
   constructor(private dragonService: DragonService, 
              @Inject(MAT_DIALOG_DATA) public matDialogData: Dragon,
-             public dialog: MatDialogRef<Dragon>) { }
+             public dialog: MatDialogRef<Dragon>,
+             public matSnackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -22,9 +24,10 @@ export class RemoveDragonsComponent implements OnInit {
   removeDragon(){
     this.dragonService.removeDragon(this.matDialogData).subscribe(() => {
       this.removeDragonEvent.emit();
+      this.snackOpen('Dragon deleted!', 'Close', 'success-snackbar');
     },
     (err: HttpErrorResponse) => {
-      alert('There was an error deleting the dragon.');
+      this.snackOpen('There was an error during deleting the dragon.', 'Close', 'alert-snackbar');
     });
     this.closeModal();
   }
@@ -32,4 +35,12 @@ export class RemoveDragonsComponent implements OnInit {
   closeModal(){
     this.dialog.close();
   }
+
+  snackOpen(message: string, action: string, nameClass: string){
+    this.matSnackBar.open(message, action, {
+      duration: 2000,
+      panelClass: nameClass
+    });
+  }
+
 }

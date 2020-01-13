@@ -3,6 +3,7 @@ import { Dragon } from 'src/app/models/dragon';
 import { DragonService } from 'src/app/services/dragon.service';
 import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-edit-dragons',
@@ -21,7 +22,8 @@ export class EditDragonsComponent implements OnInit {
   constructor(private dragonService: DragonService, 
               @Inject(MAT_DIALOG_DATA) public matDialogData: Dragon,
               private formBuilder: FormBuilder,
-              public dialog: MatDialogRef<Dragon>) { }
+              public dialog: MatDialogRef<Dragon>,
+              public matSnackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getDragon();
@@ -62,10 +64,10 @@ export class EditDragonsComponent implements OnInit {
     this.dragonService.updateDragon(dragon).subscribe(
       response => {
         this.editDragonEvent.emit();
-        alert('Saved!');
+        this.snackOpen('Dragon updated.', 'Close', 'success-snackbar');
       },
       error => {
-        alert('Error on edit');
+        this.snackOpen('Error on edit.', 'Close', 'alert-snackbar');
       }
     );
     this.closeModal();
@@ -73,5 +75,12 @@ export class EditDragonsComponent implements OnInit {
 
   closeModal(){
     this.dialog.close();
+  }
+
+  snackOpen(message: string, action: string, nameClass: string){
+    this.matSnackBar.open(message, action, {
+      duration: 2000,
+      panelClass: nameClass
+    });
   }
 }
