@@ -1,0 +1,58 @@
+<div class="modal-edit">
+    <mat-dialog-actions>
+        <form [formGroup]="editForm">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Name" id="name" name="name" formControlName="name">
+                        <mat-error *ngIf="editForm?.controls['name']?.errors?.required">
+                            <strong>Name is required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Type" id="type" name="type" formControlName="type">
+                        <mat-error *ngIf="editForm?.controls['type']?.errors?.required">
+                            <strong>Type is required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-8">
+                    <mat-form-field class="w-100">
+                        <input matInput type="text" placeholder="History" id="histories" name="histories" formControlName="histories" value="">
+                    </mat-form-field>
+                </div>
+                <div class="col-4 text-center">
+                    <button class="btn btn-add mt-1 d-none d-md-block" (click)="newHistory()">Add History</button>
+                    <button class="btn btn-add mt-1 d-block d-md-none" (click)="newHistory()">Add</button>
+                </div>
+                <div class="col-12">
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false"
+                            [disabled]="dragonHistories?.length === 0">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title *ngIf="dragonHistories?.length === 0; else histories">
+                                No histories found.
+                            </mat-panel-title>
+                            <ng-template #histories>
+                                <mat-panel-title>
+                                    Histories
+                                </mat-panel-title>
+                            </ng-template>
+                        </mat-expansion-panel-header>
+                        <div *ngIf="dragonHistories?.length > 0">
+                            <div *ngFor="let history of dragonHistories; let index = index">
+                                <p>{{index}}. {{history}}</p>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+                <div class="buttons col-12 text-right">
+                    <button class="btn btn-secondary mr-2" mat-button mat-dialog-close>Cancel</button>
+                    <button class="btn btn-success" mat-button type="submit" (click)="updateDragon()" [disabled]="!editForm.valid">Save</button>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-actions>
+</div>

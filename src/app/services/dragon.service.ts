@@ -11,7 +11,23 @@ export class DragonService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getDragons(): Observable<Dragon[]>{
+  getDragons(): Observable<Dragon[]> {
     return this.httpClient.get<Dragon[]>(api.url);
+  }
+
+  getDragon(id): Observable<Dragon> {
+    return this.httpClient.get<Dragon>(api.url + id);
+  }
+
+  updateDragon(dragon: Dragon): Observable<Dragon> {
+    return this.httpClient.put<Dragon>(api.url + dragon.id, dragon);
+  }
+
+  removeDragon(dragon: Dragon): Observable<Dragon> {
+    return this.httpClient.delete<Dragon>(api.url + dragon.id);
+  }
+
+  createDragon(dragon: Dragon): Observable<Dragon> {
+    return this.httpClient.post<Dragon>(api.url, dragon);
   }
 }

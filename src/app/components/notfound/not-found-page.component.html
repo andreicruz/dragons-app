@@ -1,0 +1,23 @@
+<div class="notfound">
+    <div>
+        <p>404 | Page not found</p>
+    </div>
+    <div class="buttons">
+        <div class="item mr-2">
+            <a [routerLink]="['/dragons']">
+                <button class="btn btn-warning">
+                    <fa-icon [icon]="faList"></fa-icon>
+                    Dragons
+                </button>
+            </a>
+        </div>
+        <div class="item mr-2">
+            <a [routerLink]="['/dragon/create']">
+                <button class="btn btn-warning">
+                    <fa-icon [icon]="faDragon"></fa-icon>
+                    New Dragon
+                </button>
+            </a>
+        </div>
+    </div>
+</div>

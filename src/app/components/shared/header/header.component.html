@@ -1,11 +1,37 @@
 <header>
     <div class="header-web container">
         <div class="home">
-            <a href="/"><fa-icon [icon]="faHome"></fa-icon></a>
-            
+            <div class="item mr-2">
+                <a [routerLink]="['/login']">
+                    <button class="btn btn-warning">
+                        <fa-icon [icon]="faHome"></fa-icon>
+                    </button>
+                </a>
+            </div>
         </div>
         <div class="menu">
-            <div class="item">Dragões</div>
+            <div class="item mr-2">
+                <a [routerLink]="['/dragons']">
+                    <button class="btn btn-warning">
+                        <fa-icon [icon]="faList"></fa-icon>
+                        Dragons
+                    </button>
+                </a>
+            </div>
+            <div class="item mr-2">
+                <a [routerLink]="['/dragon/create']">
+                    <button class="btn btn-warning">
+                        <fa-icon [icon]="faDragon"></fa-icon>
+                        New Dragon
+                    </button>
+                </a>
+            </div>
+            <div class="item">
+                <button class="btn btn-warning" (click)="logout()">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                    Logout
+                </button>
+            </div>
         </div>
     </div>
 </header>

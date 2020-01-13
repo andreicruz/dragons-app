@@ -1,24 +1,71 @@
-<div class="row">
-    
-    <div class="col-md-3" *ngFor="let dragon of dragons">
-        <div class="transform">
-            <div class="icon"[ngStyle]="{'color': dragon.color}"><fa-icon [icon]="faDragon"></fa-icon></div>
-            <div class="id" [ngStyle]="{'background-color': dragon.color}">{{dragon.id}}</div>
-            <div class="characteristics">
-                <div class="item">
-                    <div class="title">Name</div>
-                    <div class="info">{{dragon.name}}</div>
-                </div>
-                <div class="item">
-                    <div class="title">Type</div>
-                    <div class="info">{{dragon.type}}</div>
-                </div>
-            </div>
-            <div class="characteristics mt-2">
-                <div class="item">
-                    <div class="title">Created At</div>
-                    <div class="info">{{dragon.createdAt | date: 'dd/MM/yyyy'}}</div>
+<div class="list-dragons">
+    <div class="loading">
+        <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    </div>
+    <div class="buttons">
+        <div>
+            <button matTooltip="Add new Dragon"
+                    [matTooltipPosition]="positionTooltip" 
+                    [routerLink]="['/dragon/create']" 
+                    type="button" 
+                    class="btn btn-success btn-circle col-4"
+            >
+                <fa-icon [icon]="faDragon"></fa-icon>
+            </button>
+        </div>
+        <div class="mt-2">
+            <button type="button" 
+                    matTooltip="Sort by name"
+                    [matTooltipPosition]="positionTooltip" 
+                    (click)="sortByName(dragon)" 
+                    class="btn btn-primary btn-circle col-4"
+            >
+                <fa-icon [icon]="faSortAlphaUp"></fa-icon>
+            </button>
+        </div>
+        <div class="mt-2">
+            <button type="button" 
+                matTooltip="Sort by ID"
+                [matTooltipPosition]="positionTooltip" 
+                (click)="sortById(dragon)" 
+                class="btn btn-info btn-circle col-4"
+            >
+                <fa-icon [icon]="faSortNumericUp"></fa-icon>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let dragon of dragons">
+            <div class="transform">
+                <a [routerLink]="['/dragon/'+ dragon?.id]">
+                    <div class="icon"[ngStyle]="{'color': dragon.color}"><fa-icon [icon]="faDragon"></fa-icon></div>
+                    <div class="id" [ngStyle]="{'background-color': dragon.color}">{{dragon.id}}</div>
+                    <div class="characteristics">
+                        <div class="item">
+                            <div class="title">Name</div>
+                            <div class="info">{{dragon.name}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="title">Type</div>
+                            <div class="info">{{dragon.type}}</div>
+                        </div>
+                    </div>
+                    <div class="characteristics mt-2">
+                        <div class="item">
+                            <div class="title">Created At</div>
+                            <div class="info">{{dragon.createdAt | date: 'dd/MM/yyyy'}}</div>
+                        </div>
+                    </div>
+                </a>
+                <div class="action-buttons">
+                    <div class="item">
+                        <button class="btn btn-primary" (click)="openEditModal(dragon)"><fa-icon [icon]="faPen"></fa-icon></button>
+                    </div>
+                    <div class="item">
+                        <button class="btn btn-danger" (click)="openDeleteModal(dragon)"><fa-icon [icon]="faTrash"></fa-icon></button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 </div>

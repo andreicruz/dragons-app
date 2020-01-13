@@ -1,28 +1,73 @@
-.transform
-    border: 2px solid
-    margin-bottom: 20px
-    /* transform: skew(-20deg); */
-    min-height: 350px
-    text-align: center
-    .icon
-        font-size: 100px
-        padding: 15px
-    .id
-        background-color: black
-        color: white
-        left: 20px
-        /* border-radius: 5px; */
-        padding: 2px 5px
-        position: absolute
-        top: 5px
-    .characteristics
+.list-dragons
+    .transform
+        border: 2px solid
+        border-radius: 4px
+        margin-bottom: 20px
+        min-height: 350px
+        text-align: center
+        a
+            color: black
+            text-decoration: none
+            .icon
+                font-size: 100px
+                padding: 15px
+            .id
+                background-color: black
+                border-radius: 4px
+                color: white
+                left: 20px
+                padding: 2px 5px
+                position: absolute
+                top: 5px
+            .characteristics
+                display: flex
+                .item
+                    flex: 1
+                    .title
+                        font-weight: 700
+                    .info
+                        text-transform: capitalize
+                        .element
+                            margin: auto
+                            width: 50%                
+        .action-buttons
+            display: flex
+            margin: 10px auto 0px auto
+            width: 50%
+            .item
+                flex: 1
+                .btn
+                    border-radius: 4px
+    .buttons
         display: flex
-        .item
-            flex: 1
-            .title
-                font-weight: 700
-            .info
-                .element
-                    margin: auto
-                    width: 50%                
-        
+        flex-direction: column
+        position: fixed
+        right: 0
+        top: 50%
+        text-align: center
+        width: 10%
+        div
+            button
+                margin: 0px 5px
+            .btn-circle
+                border-radius: 25px
+                color: white
+                font-size: 18px
+                height: 50px
+                line-height: 1.33
+                padding: 10px 10px
+                width: 50px
+
+
+@media only screen and (max-width: 1650px)
+    .list-dragons
+        .buttons
+            flex-direction: row
+            margin-bottom: 20px
+            position: static
+            right: 0
+            top: 50%
+            text-align: center
+            width: 100%
+            div
+                flex: 1
