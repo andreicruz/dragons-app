@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  dragons-app:
+    image: dragons-app
+    build: .
+    ports:
+      - 8081:80
