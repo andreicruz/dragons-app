@@ -81,7 +81,7 @@ export class ListDragonsComponent implements OnInit {
   }
 
   sortById() {
-    this.dragons.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+    this.dragons.sort((a, b) => parseInt(a.id, 10) - parseInt(b.id, 10));
   }
 
   sortByName() {

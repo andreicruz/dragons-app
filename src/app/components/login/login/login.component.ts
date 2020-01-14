@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if ( this.loginForm.get('email').value === user.email && this.loginForm.get('password').value === user.password ){
+    if ( this.loginForm.get('email').value === user.email && this.loginForm.get('password').value === user.password ) {
       this.authService.login();
       this.router.navigateByUrl('/dragons');
     } else {
