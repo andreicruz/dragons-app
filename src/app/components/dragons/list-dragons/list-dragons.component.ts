@@ -30,17 +30,17 @@ export class ListDragonsComponent implements OnInit {
   getDragons() {
     this.showSpinner = true;
     this.dragonService.getDragons().subscribe(data => {
-        this.dragons = data.sort((a, b) => a.name.localeCompare(b.name))
+        this.dragons = data.sort((a, b) => a.name.localeCompare(b.name));
         this.dragons.forEach(dragon => {
             dragon.color = this.generateColor();
-        })
+        });
         this.showSpinner = false;
-    })
+    });
 
   }
 
-  generateColor(): string{
-    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+  generateColor(): string {
+    const color = Math.floor(0x1000000 * Math.random()).toString(16);
     return '#' + ('000000' + color).slice(-6);
   }
 
@@ -59,10 +59,10 @@ export class ListDragonsComponent implements OnInit {
 
     dialogRef.componentInstance.editDragonEvent.subscribe(() => {
       this.getDragons();
-    })
+    });
   }
 
-  openDeleteModal(dragon){
+  openDeleteModal(dragon) {
     const dialogRef = this.dialog.open(RemoveDragonsComponent, {
       width: '220px',
       height: '150px',
@@ -77,14 +77,14 @@ export class ListDragonsComponent implements OnInit {
 
     dialogRef.componentInstance.removeDragonEvent.subscribe(() => {
       this.getDragons();
-    })
+    });
   }
 
-  sortById(){
+  sortById() {
     this.dragons.sort((a, b) => parseInt(a.id) - parseInt(b.id));
   }
 
-  sortByName(){
+  sortByName() {
     this.dragons.sort((a, b) => a.name.localeCompare(b.name));
   }
 }

@@ -17,7 +17,7 @@ export class CreateDragonsComponent implements OnInit {
   minLength = 2;
   maxLength = 20;
 
-  constructor(private dragonService: DragonService, 
+  constructor(private dragonService: DragonService,
               private formBuilder: FormBuilder,
               private location: Location,
               public matSnackBar: MatSnackBar) { }
@@ -26,7 +26,7 @@ export class CreateDragonsComponent implements OnInit {
     this.validateForm();
   }
 
-  validateForm(){
+  validateForm() {
     this.createForm = this.formBuilder.group({
       name: this.formBuilder.control('', [Validators.required, Validators.minLength(this.minLength), Validators.maxLength(this.maxLength)]),
       type: this.formBuilder.control('', [Validators.required, Validators.minLength(this.minLength), Validators.maxLength(this.maxLength)]),
@@ -35,7 +35,7 @@ export class CreateDragonsComponent implements OnInit {
   }
 
 
-  newHistory(){
+  newHistory() {
     this.dragonHistories.push(this.createForm.controls.histories.value);
     this.createForm.controls.histories.setValue('');
   }
@@ -65,7 +65,7 @@ export class CreateDragonsComponent implements OnInit {
     this.location.back();
   }
 
-  snackOpen(message: string, action: string, nameClass: string){
+  snackOpen(message: string, action: string, nameClass: string) {
     this.matSnackBar.open(message, action, {
       duration: 2000,
       panelClass: nameClass

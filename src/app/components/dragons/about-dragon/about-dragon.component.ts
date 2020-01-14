@@ -14,7 +14,7 @@ export class AboutDragonComponent implements OnInit {
   panelOpenState = false;
   showSpinner = false;
 
-  constructor(private dragonService: DragonService, 
+  constructor(private dragonService: DragonService,
               private route: ActivatedRoute,
               private location: Location) { }
 
@@ -25,9 +25,9 @@ export class AboutDragonComponent implements OnInit {
   getDragon(id) {
     this.showSpinner = true;
     this.dragonService.getDragon(id).subscribe(data => {
-      this.dragon = data
+      this.dragon = data;
       this.showSpinner = false;
-    })
+    });
   }
 
   previousPage() {

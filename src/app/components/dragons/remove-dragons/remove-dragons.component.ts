@@ -13,10 +13,10 @@ import { MatSnackBar } from '@angular/material';
 export class RemoveDragonsComponent implements OnInit {
   removeDragonEvent = new EventEmitter();
 
-  constructor(private dragonService: DragonService, 
-             @Inject(MAT_DIALOG_DATA) public matDialogData: Dragon,
-             public dialog: MatDialogRef<Dragon>,
-             public matSnackBar: MatSnackBar) { }
+  constructor(private dragonService: DragonService,
+              @Inject(MAT_DIALOG_DATA) public matDialogData: Dragon,
+              public dialog: MatDialogRef<Dragon>,
+              public matSnackBar: MatSnackBar) { }
 
   ngOnInit() {
   }

@@ -19,7 +19,7 @@ export class EditDragonsComponent implements OnInit {
   maxLength = 20;
   panelOpenState = false;
 
-  constructor(private dragonService: DragonService, 
+  constructor(private dragonService: DragonService,
               @Inject(MAT_DIALOG_DATA) public matDialogData: Dragon,
               private formBuilder: FormBuilder,
               public dialog: MatDialogRef<Dragon>,
@@ -30,7 +30,7 @@ export class EditDragonsComponent implements OnInit {
     this.validateForm();
   }
 
-  validateForm(){
+  validateForm() {
     this.editForm = this.formBuilder.group({
       name: this.formBuilder.control(this.matDialogData.name,
         [Validators.required, Validators.minLength(this.minLength), Validators.maxLength(this.maxLength)]),
@@ -40,26 +40,26 @@ export class EditDragonsComponent implements OnInit {
     });
   }
 
-  getDragon(){
+  getDragon() {
     this.dragonService.getDragon(this.matDialogData.id).subscribe(data => {
       this.dragon = data;
       this.dragonHistories = data.histories;
-    })
+    }); 
   }
 
-  newHistory(){
+  newHistory() {
     this.dragonHistories.push(this.editForm.controls.histories.value);
     this.editForm.controls.histories.setValue('');
   }
 
-  updateDragon(){
+  updateDragon() {
     const dragon = {
       id: this.matDialogData.id,
       createdAt: this.matDialogData.createdAt,
       name: this.editForm.get('name').value,
       type: this.editForm.get('type').value,
       histories: this.dragonHistories.length < 1 ? [] : this.dragonHistories
-    }
+    };
 
     this.dragonService.updateDragon(dragon).subscribe(
       response => {
@@ -73,11 +73,11 @@ export class EditDragonsComponent implements OnInit {
     this.closeModal();
   }
 
-  closeModal(){
+  closeModal() {
     this.dialog.close();
   }
 
-  snackOpen(message: string, action: string, nameClass: string){
+  snackOpen(message: string, action: string, nameClass: string) {
     this.matSnackBar.open(message, action, {
       duration: 2000,
       panelClass: nameClass
