@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor() { }
 
-  getAuthentication(){
+  getAuthentication() {
     const token = localStorage.getItem('token');
     return authToken === token;
   }

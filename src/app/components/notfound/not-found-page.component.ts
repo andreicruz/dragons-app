@@ -10,7 +10,6 @@ export class NotFoundPageComponent implements OnInit {
   faHome = faHome;
   faList = faList;
   faDragon = faDragon;
-  
   constructor() { }
 
   ngOnInit() {

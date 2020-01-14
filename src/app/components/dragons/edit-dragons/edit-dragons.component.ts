@@ -44,7 +44,7 @@ export class EditDragonsComponent implements OnInit {
     this.dragonService.getDragon(this.matDialogData.id).subscribe(data => {
       this.dragon = data;
       this.dragonHistories = data.histories;
-    }); 
+    });
   }
 
   newHistory() {
