@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   faUser = faUser;
   loginForm: FormGroup;
-  
-  constructor(private formBuilder: FormBuilder, 
+
+  constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
               public matSnackBar: MatSnackBar,
               private router: Router) { }
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if(this.loginForm.get('email').value === user.email && this.loginForm.get('password').value=== user.password){
+    if ( this.loginForm.get('email').value === user.email && this.loginForm.get('password').value === user.password ){
       this.authService.login();
       this.router.navigateByUrl('/dragons');
     } else {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  snackOpen(message: string, action: string){
+  snackOpen(message: string, action: string) {
     this.matSnackBar.open(message, action, {
       duration: 2000,
       panelClass: ['alert-snackbar']

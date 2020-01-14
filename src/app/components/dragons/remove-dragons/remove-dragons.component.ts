@@ -21,7 +21,7 @@ export class RemoveDragonsComponent implements OnInit {
   ngOnInit() {
   }
 
-  removeDragon(){
+  removeDragon() {
     this.dragonService.removeDragon(this.matDialogData).subscribe(() => {
       this.removeDragonEvent.emit();
       this.snackOpen('Dragon deleted!', 'Close', 'success-snackbar');
@@ -32,11 +32,11 @@ export class RemoveDragonsComponent implements OnInit {
     this.closeModal();
   }
 
-  closeModal(){
+  closeModal() {
     this.dialog.close();
   }
 
-  snackOpen(message: string, action: string, nameClass: string){
+  snackOpen(message: string, action: string, nameClass: string) {
     this.matSnackBar.open(message, action, {
       duration: 2000,
       panelClass: nameClass
